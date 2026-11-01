@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Challenge Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1>Typing Challenge</h1>
+    <p>Improve your typing speed and accuracy!</p>
+  </header>
+
+  <main class="container">
+
+    <section id="homeScreen">
+      <h2>Choose Your Game Mode</h2>
+
+      <div class="mode-cards">
+        <article class="mode-card">
+          <h3>🔵 Bubble Pop</h3>
+          <p>Pop rising letter bubbles by pressing the correct keys.</p>
+          <button onclick="showMode('bubbles')">Play Bubbles</button>
+        </article>
+
+        <article class="mode-card">
+          <h3>⌨️ KeyMagnet</h3>
+          <p>Find target keys and improve your typing accuracy.</p>
+          <button onclick="showMode('magnet')">Play KeyMagnet</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- BUBBLES MODE -->
+    <section id="bubbleScreen" class="game-screen hidden">
+      <button class="back-btn" onclick="goHome()">← Home</button>
+      <h2>Bubble Pop</h2>
+
+      <div class="controls">
+        <label>Difficulty:
+          <select id="bubbleDifficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+        <button id="bubbleStart">Start Game</button>
+        <button id="bubbleRestart">Restart</button>
+        <button id="bubbleReset">Reset</button>
+      </div>
+
+      <div class="stats">
+  <span>Time: <b id="bubbleTime">30</b>s</span>
+  <span>Score: <b id="bubbleScore">0</b></span>
+  <span>Misses: <b id="bubbleMisses">0</b></span>
+  <span>Wrong: <b id="bubbleWrong">0</b></span>
+  <span>Status: <b id="bubbleStatus">Ready</b></span>
+</div>
+
+      <div id="bubbleArea" class="bubble-area">
+        <p class="hint">Press Start Game to begin!</p>
+      </div>
+
+      <div id="bubbleResult" class="result hidden"></div>
+    </section>
+
+    <!-- KEYMAGNET MODE -->
+    <section id="magnetScreen" class="game-screen hidden">
+      <button class="back-btn" onclick="goHome()">← Home</button>
+      <h2>KeyMagnet</h2>
+
+      <div class="controls">
+        <label>Difficulty:
+          <select id="magnetDifficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+
+        <label>Key Set:
+          <select id="keySet">
+            <option value="home">Home Row</option>
+            <option value="middle">Home + Top Row</option>
+            <option value="all">All Letters</option>
+          </select>
+        </label>
+
+        <button id="magnetStart">Start Game</button>
+        <button id="magnetRestart">Restart</button>
+        <button id="magnetReset">Reset</button>
+      </div>
+
+      <div class="stats">
+        <span>Time: <b id="magnetTime">30</b>s</span>
+        <span>Correct: <b id="magnetCorrect">0</b></span>
+        <span>Wrong: <b id="magnetWrong">0</b></span>
+        <span>Accuracy: <b id="magnetAccuracy">0%</b></span>
+      </div>
+
+      <div class="target-box">
+        <p>Press this key:</p>
+        <div id="targetKey">A</div>
+      </div>
+
+      <div id="keyboard" class="keyboard"></div>
+      <p id="magnetStatus" class="status">Press Start Game to begin!</p>
+      <p>Average response time: <b id="responseTime">0 ms</b></p>
+
+      <div id="magnetResult" class="result hidden"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Typing Challenge Game </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
