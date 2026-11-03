@@ -132,9 +132,10 @@ function moveBubbles() {
   const missed = bubbles.filter(bubble => bubble.y < 0);
 
   missed.forEach(bubble => {
-    bubble.element.remove();
-    bubbleMisses++;
-  });
+  bubble.element.remove();
+  bubbleMisses++;
+  bubbleScore = Math.max(0, bubbleScore - 2);
+});
 
   bubbles = bubbles.filter(bubble => bubble.y >= 0);
 
